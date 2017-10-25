@@ -3,16 +3,18 @@ import {View, StyleSheet, Text, FlatList} from 'react-native';
 import {Button} from 'react-native-elements';
 import {Colors, Masonry} from '../config';
 import store from '../store/store.js';
-import PersonContainer from '../containers/PersonContainer';
+import PersonListContainer from '../containers/PersonListContainer';
 
-export default class ComplexScreen extends Component {
+export default class PersonListScreen extends Component {
   static navigationOptions = {
     title: 'Users'
   }
 
-  renderPersonCell(item) {
-    var personCell = <PersonContainer person={item.item} />;
-    return personCell;
+  constructor(props) {
+    super(props);
+    store.subscribe(() => {
+      console.log('store was changed');
+    });
   }
 
   resetPeople() {
@@ -29,11 +31,7 @@ export default class ComplexScreen extends Component {
             <Text style={[Masonry.labelBlockText]}> Person List </Text>
           </View>
           <View style={{flex: 1, backgroundColor: 'white', width: '100%'}}>
-            <FlatList
-              data={store.getState().persons}
-              renderItem={this.renderPersonCell}
-              keyExtractor={(item, index) => item.uuid}
-            />
+            <PersonListContainer/>
           </View>
         </View>
         <View style={{flex: 0.2, width: '100%'}}>

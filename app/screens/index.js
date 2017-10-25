@@ -1,9 +1,9 @@
 import basicScreen from './basicScreen';
 import selectScreen from './selectScreen';
-import complexScreen from './complexScreen';
-import complexScreenGenerator from './complexScreenGenerator';
+import personListScreen from './PersonListScreen';
+import personGeneratorScreen from './PersonGeneratorScreen';
 
 export const BasicScreen = basicScreen;
 export const SelectScreen = selectScreen;
-export const ComplexScreen = complexScreen;
-export const ComplexScreenGenerator = complexScreenGenerator;
+export const PersonListScreen = personListScreen;
+export const PersonGeneratorScreen = personGeneratorScreen;

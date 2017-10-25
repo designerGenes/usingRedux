@@ -7,6 +7,9 @@ export default StyleSheet.create({
     alignItems: 'center',
     width: '100%'
   },
+  hidden: {
+    opacity: 0
+  },
   container: {
     flex: 1,
     alignItems: 'flex-start',

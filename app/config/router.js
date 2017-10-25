@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {StackNavigator} from 'react-navigation';
-import {SelectScreen, BasicScreen, ComplexScreen, ComplexScreenGenerator} from '../screens';
+import {SelectScreen, BasicScreen, PersonListScreen, PersonGeneratorScreen} from '../screens';
 
 export default StackNavigator({
-  ComplexScreenGenerator: {screen: ComplexScreenGenerator},
+  PersonGeneratorScreen: {screen: PersonGeneratorScreen},
   SelectScreen: {screen: SelectScreen},
   BasicScreen: {screen: BasicScreen},
-  ComplexScreen: {screen: ComplexScreen},
+  PersonListScreen: {screen: PersonListScreen},
 });

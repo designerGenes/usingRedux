@@ -17,12 +17,24 @@ export default class PersonCell extends Component {
           <View style={{flex: 1}}/>
           <Text style={{color: 'black', fontWeight: 'bold', textAlign: 'right', fontSize: 18}}>  Swimming Confidence {person.swimmingConfidence}  </Text>
         </View>
+        <View style={{flex: 1}}/>
+        <View style={[styles.borderline, {backgroundColor: Colors.grayMid}]}/>
+
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  borderline: {
+    alignSelf: 'flex-start',
+    flex: 1,
+    height: 2,
+    marginTop: 8,
+    marginLeft: 8,
+    marginRight: 8,
+    width: '100%'
+  },
   row: {
     flex: 1,
     flexDirection: 'row',
