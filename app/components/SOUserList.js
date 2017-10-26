@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import {Colors, Masonry} from '../config';
 
-const ENDPOINT_URL = 'https://api.stackexchange.com/2.2/users?site=stackoverflow';
 
 // Stack Overflow User JSON model
 // { badge_counts: { bronze: 892, silver: 805, gold: 128 },
@@ -27,16 +26,8 @@ const ENDPOINT_URL = 'https://api.stackexchange.com/2.2/users?site=stackoverflow
 //     profile_image: 'https://www.gravatar.com/avatar/2f364c2e36b52bc80296cbf23da8b231?s=128&d=identicon&r=PG',
 //     display_name: 'cletus' } ],
 
-export default class SOUserList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: [],
-      hasErrored: false,
-      isLoading: true,
-    };
-  }
 
+export default class SOUserList extends Component {
   loadingMessageComponent() {
     return (
       <View style={styles.container}>
@@ -73,29 +64,25 @@ export default class SOUserList extends Component {
   }
 
   componentDidMount() {
-    this.fetchData(ENDPOINT_URL);
-  }
-
-  fetchData(url) {
-    return fetch(url)
-            .then( (response) => response.json() )
-            .then((responseJSON) => this.setState({users: responseJSON.items, isLoading: false, hasErrored: false}))
-            .catch(() => this.setState({hasErrored: true, isLoading: false}));
+    this.props.fetchData(this.props.url);
   }
 
   render() {
-    if (this.state.hasErrored) {
+    var users = this.props.users.users;
+    if (this.props.hasErrored) {
       return this.errorMessageComponent()
     }
-    if (this.state.isLoading) {
+    if (this.props.isLoading) {
       return this.loadingMessageComponent()
     }
+    // console.log(this.props.users);
     return(
+
       <View style={[styles.container, { padding: 0, margin: 16, marginTop: 57, alignItems: 'flex-start'}]}>
         <Text style={[styles.badgeCountText, {margin: 12, padding: 10}]}> SO Users </Text>
         <View style={{width: '100%'}}>
           <FlatList
-            data={this.state.users}
+            data={users}
             renderItem={this.renderUserCell}
             keyExtractor={(item, index) => item.account_id} />
         </View>

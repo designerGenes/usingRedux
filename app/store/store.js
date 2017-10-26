@@ -1,15 +1,6 @@
-import {createStore, combineReducers} from 'redux';
-
-
-
-const SOUserReducer = (state = [], action => {
-  switch(action.type) {
-    case 'GET_LIST':
-
-      break;
-  }
-  return state;
-})
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import {SOUserReducer} from '../reducers';
 
 const personReducer = (state = [], action) => {
   switch (action.type) {
@@ -35,5 +26,6 @@ const counterReducer = (state = 1, action) => {
   return state;
 }
 
-let store = createStore( combineReducers({counter: counterReducer, persons: personReducer}));
+const allReducers = combineReducers({counter: counterReducer, persons: personReducer, users: SOUserReducer});
+let store = createStore(allReducers, applyMiddleware(thunk) );
 export default store;
