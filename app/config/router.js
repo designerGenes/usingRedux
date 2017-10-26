@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
-import {StackNavigator} from 'react-navigation';
-import {SelectScreen, BasicScreen, PersonListScreen, PersonGeneratorScreen} from '../screens';
+import {StackNavigator, TabNavigator} from 'react-navigation';
+import {SelectScreen, BasicScreen, PersonListScreen, PersonGeneratorScreen, ThunkScreen} from '../screens';
+import Colors from './colors'
 
-export default StackNavigator({
-  PersonGeneratorScreen: {screen: PersonGeneratorScreen},
-  SelectScreen: {screen: SelectScreen},
-  BasicScreen: {screen: BasicScreen},
-  PersonListScreen: {screen: PersonListScreen},
+
+
+export default TabNavigator({
+  PersonGeneratorTab: {screen: StackNavigator({
+    PersonGeneratorScreen: {screen: PersonGeneratorScreen},
+    PersonListScreen: {screen: PersonListScreen},
+  })},
+  BasicTab: {screen: BasicScreen},
+  ThunkTab: {screen: ThunkScreen},
+}, {
+  tabBarOptions: {
+    activeTintColor: Colors.orange
+  }
 });

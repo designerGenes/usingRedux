@@ -6,6 +6,8 @@ export default {
     blue: '#1BE7FF',
     orange: '#FF5714',
     red: '#F71735',
+    gold: '#f4ac45',
+    bronze: '#694a38',
     grayMid: '#595959',
     grayLight: '#747274',
     grayGunmetal: '#2E2E3A',

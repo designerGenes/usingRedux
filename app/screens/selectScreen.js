@@ -12,19 +12,25 @@ export default class SelectScreen extends Component {
     const {navigate} = this.props.navigation;
     return(
       <View style={[Masonry.container, {backgroundColor: Colors.grayGunmetal}]}>
-        <View style={{alignItems: 'center', alignSelf: 'center', flex: 1, marginTop: '50%'}}>
+        <View style={styles.buttonHolder}>
           <Button
-            large raised
-            buttonStyle={[styles.screenButton, {backgroundColor: Colors.blue}]}
+            large
+            buttonStyle={[styles.screenButton, {backgroundColor: Colors.green}]}
             title={'Basic Example'}
             textStyle={styles.screenButtonText}
             onPress={() => navigate("BasicScreen") }/>
           <Button
-            large raised
-            buttonStyle={[styles.screenButton, {backgroundColor: Colors.blue}]}
+            large
+            buttonStyle={[styles.screenButton, {backgroundColor: Colors.green}]}
             title={'Complex Example'}
             textStyle={styles.screenButtonText}
-            onPress={() => navigate("ComplexScreenGenerator")} />
+            onPress={() => navigate("PersonGeneratorScreen")} />
+          <Button
+            large
+            buttonStyle={[styles.screenButton, {backgroundColor: Colors.green}]}
+            title={'Thunk Example'}
+            textStyle={styles.screenButtonText}
+            onPress={() => navigate("ThunkScreen")} />
         </View>
       </View>
     );
@@ -33,10 +39,21 @@ export default class SelectScreen extends Component {
 
 const styles = StyleSheet.create({
   screenButton: {
+    height: 60,
+    flexDirection: 'row',
     borderRadius: 12,
-    margin: 12
+    margin: 16,
   },
   screenButtonText: {
-    color: 'white'
+    color: 'white',
+    fontSize: 26,
+    fontWeight: 'bold',
+  },
+  buttonHolder: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    flex: 1,
+    marginTop: '50%',
+    width: '100%'
   }
 });

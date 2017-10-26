@@ -14,7 +14,7 @@ export default class PersonGeneratorScreen extends Component {
   }
 
   static navigationOptions = {
-    title: 'Set State'
+    title: 'Person Generator'
   }
 
   render() {

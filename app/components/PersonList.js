@@ -15,7 +15,6 @@ export default class PersonList extends Component {
   }
 
   renderPersonCell(person) {
-    console.log(person.item);
     var personCell = <PersonCell person={person.item} />;
     return personCell;
   }

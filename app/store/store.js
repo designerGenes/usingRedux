@@ -1,5 +1,16 @@
 import {createStore, combineReducers} from 'redux';
 
+
+
+const SOUserReducer = (state = [], action => {
+  switch(action.type) {
+    case 'GET_LIST':
+
+      break;
+  }
+  return state;
+})
+
 const personReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_NEW':

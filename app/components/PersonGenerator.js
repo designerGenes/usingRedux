@@ -19,7 +19,6 @@ export default class PersonGenerator extends Component {
   }
 
   submitPerson() {
-    const navigate = this.props.navigate;
     this.props.addNewPerson({
       name: this.state.personName,
       age: this.state.personAge,
@@ -28,7 +27,7 @@ export default class PersonGenerator extends Component {
       uuid: uuidv4()
     });
     this.resetState();
-    navigate('PersonListScreen');
+    this.props.navigate('PersonListScreen');
   }
 
   resetState() {
